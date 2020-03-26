@@ -1,4 +1,4 @@
-# words = {'reguły są poto, aby je łamać'}
+# words = {'reguły są poto, aby je łamać'}dsadadasd
 
 sentence_main = 'reguły są po to, aby je łamać'
 letters_list = []
