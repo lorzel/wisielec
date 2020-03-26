@@ -66,7 +66,7 @@ sentence_to_letters(sentence_main)
 generate_stars(sentence_main)
 print(dictionary)
 update_stars(sentence_main, '')
-# list2 = []
+#cos
 user_input = input('Litera: ')
 update_stars(sentence_main, user_input)
 user_input2 = input('Litera: ')
