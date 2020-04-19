@@ -9,6 +9,9 @@ alphabet = ['a', 'ą', 'b', 'c', 'ć', 'd', 'e', 'ę', 'f', 'g', 'h', 'i', 'j', 
 dictionary = {}
 dictionary2 = {}
 
+lives = 9
+letters = []
+
 
 def sentence_to_letters(sentence):
     for word in sentence:
@@ -31,7 +34,6 @@ def generate_stars(words):
                 i += 1
                 list.append(letter)
             star_sentence = ''.join(list)
-    #print(star_sentence)
 
 
 def update_stars(sentence, char):
@@ -67,12 +69,36 @@ def dict_to_string(dict):
     dict_list.clear()
 
 
-
 sentence_to_letters(sentence_main)
 generate_stars(sentence_main)
 
 update_stars(sentence_main, '')
-user_input = input('Litera: ')
-update_stars(sentence_main, user_input)
-user_input2 = input('Litera: ')
-update_stars(sentence_main, user_input2)
+print('kiedy już będziesz znał odpowiedź, wpisz "wiem" i następnie wpisz hasło')
+
+while lives != 0:
+    user_input = input('Litera: ')
+
+    if user_input == 'wiem':
+        answer = input("wpisz odpowiedź (małymi literami): ")
+        if answer == sentence_main:
+            print('brawo! odgadłeś hasło')
+            break
+        else:
+            print('przykro mi, poprawne hasło  to: ' + sentence_main)
+            break
+
+    elif user_input not in alphabet:
+        print('wpisuj jedynie pojedyńcze litery')
+
+    elif user_input in letters:
+        print('tą literę już sprawdzałeś')
+
+    elif user_input in sentence_main:
+            update_stars(sentence_main, user_input)
+
+    else:
+        print('spróbuj innej litery')
+        lives -= 1
+        print('zostało Ci ' + str(lives) + ' żyć')
+
+    letters.append(user_input)
